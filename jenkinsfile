@@ -21,12 +21,12 @@ pipeline {
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=farmy \
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=farmy \
                     -Dsonar.projectKey=farmy '''
                 }
             }
         }
-         stage('Quality Gate') {
+        stage('Quality Gate') {
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: SONARQUBE_CREDENTIALS
@@ -65,8 +65,9 @@ pipeline {
                 sh 'docker run -d --name webapp -p 3000:3000 tohidaws/farmy:latest'
             }
         }
-         post {
-            always {
+    }
+    post {
+        always {
             // Send Slack notification after every build
             slackSend(
                 channel: '#devops',
@@ -76,4 +77,4 @@ pipeline {
             )
         }
     }
-}
+} // <-- Closing brace added for the pipeline block
