@@ -30,50 +30,50 @@ pipeline {
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: SONARQUBE_CREDENTIALS
-                 }
-             }
-         }
-         stage('OWASP FS SCAN') {
+                }
+            }
+        }
+        stage('OWASP FS SCAN') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-             }
-         }
-         stage('TRIVY FS SCAN') {
+            }
+        }
+        stage('TRIVY FS SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
             }
-         }
-         stage("Docker Build & Push"){
-             steps{
+        }
+        stage("Docker Build & Push"){
+            steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build -t farmy ."         // add your own name
                        sh "docker tag farmy tohidaws/farmy:latest "  // tag the name which you have given to your iamge
                        sh "docker push tohidaws/farmy:latest "  
-                       }
-                   }
-              }
-          }
-          stage("TRIVY"){
+                    }
+                }
+            }
+        }
+        stage("TRIVY"){
             steps{
-                sh "trivy image tohidaws/devsecops_ad:latest > trivy.txt" 
-              }
-          }
-          stage('Deploy to container'){
+                sh "trivy image tohidaws/farmy:latest > trivy.txt" 
+            }
+        }
+        stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name 2048 -p 3000:3000 tohidaws/farmy:latest'
-             }
-          }
-            post {
-             always {
-                // Send Slack notification after every build
-                slackSend(
+                sh 'docker run -d --name webapp -p 3000:3000 tohidaws/farmy:latest'
+            }
+        }
+         post {
+            always {
+            // Send Slack notification after every build
+            slackSend(
                 channel: '#devops',
                 color: '#FF0000',
                 message: "Find Status of Pipeline: ${currentBuild.currentResult} ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_URL}",
                 tokenCredentialId: 'slack-jenkins-ci'
-                            )
-                       }
-                   }
-              }
+            )
+        }
+    }
+}
