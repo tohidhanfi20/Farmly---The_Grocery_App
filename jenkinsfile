@@ -48,21 +48,21 @@ pipeline {
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build -t farmy ."         // add your own name
-                       sh "docker tag farmy tohidaws/farmy:latest "  // tag the name which you have given to your iamge
-                       sh "docker push tohidaws/farmy:latest "  
+                       sh "docker build -t farmly ."         // add your own name
+                       sh "docker tag farmy tohidaws/farmly:latest "  // tag the name which you have given to your iamge
+                       sh "docker push tohidaws/farmly:latest "  
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image tohidaws/farmy:latest > trivy.txt" 
+                sh "trivy image tohidaws/farmly:latest > trivy.txt" 
             }
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name webapp -p 3000:3000 tohidaws/farmy:latest'
+                sh 'docker run -d --name webapp -p 3000:3000 tohidaws/farmly:latest'
             }
         }
     }
