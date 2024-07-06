@@ -49,7 +49,7 @@ pipeline {
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build -t farmly ."         // add your own name
-                       sh "docker tag farmy tohidaws/farmly:latest "  // tag the name which you have given to your iamge
+                       sh "docker tag farmly tohidaws/farmly:latest "  // tag the name which you have given to your iamge
                        sh "docker push tohidaws/farmly:latest "  
                     }
                 }
@@ -62,7 +62,7 @@ pipeline {
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name webapp -p 3000:3000 tohidaws/farmly:latest'
+                sh 'docker run -d --name noapp -p 80:80 tohidaws/farmly:latest'
             }
         }
     }
