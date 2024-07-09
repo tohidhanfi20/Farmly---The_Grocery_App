@@ -264,6 +264,9 @@ NOW navigate to soanrqube Dashboard → Administration → Configuration → web
 
 # NOW Let's Build Our pipeline
 
+NOW navigate to Jenkins Dashboard → New item → Name it → Select Pipeline → Click OK
+
+
 
 
 # terminate the instance if you don't you will begger in no time :> 
