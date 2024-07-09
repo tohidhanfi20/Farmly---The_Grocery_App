@@ -266,7 +266,16 @@ NOW navigate to soanrqube Dashboard → Administration → Configuration → web
 
 NOW navigate to Jenkins Dashboard → New item → Name it → Select Pipeline → Click OK
 
+Go to Pipeline and paste it from 
+https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/jenkinsfile
 
+NOTE : Do changes in all steps ex - Docker Credentials , Slack Credentials etc.
+
+SAVE THE PIPELINE
+
+BUILD NOW
+
+HERE ARE SOME SCREENSHOTS
 
 
 # terminate the instance if you don't you will begger in no time :> 
