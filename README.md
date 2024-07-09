@@ -184,7 +184,7 @@ Install below plugins
 
 10 → Sonar Quality Gates
 
-<img width="3000" height="200" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Jenkins%20Plugins.png>
+<img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Jenkins%20Plugins.png>
 
 # Step 3 (B) — Configure Tools in jenkins
 
