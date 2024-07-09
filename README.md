@@ -119,6 +119,8 @@ Create a user click on save and continue.
        stable"
 
     sudo apt-get update
+
+    chmod 777 /var/run/docker.sock
     
     sudo apt-get install docker-ce docker-ce-cli containerd.io
 
@@ -178,7 +180,10 @@ Install below plugins
 
 # Step 3 (B) — Configure Java in Global Tool Configuration
 
-Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→
+Goto Manage Jenkins → Tools →
+Install JDK(17)
+from adobtium.net
+version - jdk-17.0.8.1+1
 Click on Apply and Save
 
 
@@ -238,44 +243,17 @@ First, we configured the Plugin and next, we had to configure the Tool
 
 Go to Dashboard → Manage Jenkins → Tools →
 
-
-
 Now go configure → Pipeline and add OWASP and TRIVY stage to your
 pipeline and build.
-
-
 
 You will see that in status, a graph will also be generated and
 Vulnerabilities.
 
-
-
 # Step 6 — Docker Image Build and Push
-
-We need to install the Docker tool in our system,
-
-Goto Dashboard → Manage Plugins → Available plugins → Search
-for Docker and install these plugins
-
-     Docker
-
-     Docker Commons
-
-     Docker Pipeline
-
-     Docker API
-
-     Docker-build-step
 
 Now, goto Dashboard → Manage Jenkins → Tools →
 
-
-
 Add Docker Hub Username and Password under Global Credentials
-
-
-
-
 
 Now Run the container to see if the game coming up or not by adding
 below stage
