@@ -178,19 +178,18 @@ Install below plugins
 
 10 → Sonar Quality Gates
 
-# Step 3 (B) — Configure Java in Global Tool Configuration
+# Step 3 (B) — Configure Tool in jenkins
 
-Goto Manage Jenkins → Tools →
-Install JDK(17)
-from adobtium.net
-version - jdk-17.0.8.1+1
-Click on Apply and Save
+Goto Manage Jenkins → Tools →Install JDK
+
++ Name - jdk17
++ Install from - adobtium.net
++ version - jdk-17.0.8.1+1
++ Click on Apply and Save
+
+# Step 4 — Let's Set-up Credentials in jenkins
 
 
-
-# Step 3 (C) — Create a Job
-
-create a job as Devsecops_demo Name, select pipeline and click ok.
 
 # Step 4 — Configure Sonar Server in Manage Jenkins
 
