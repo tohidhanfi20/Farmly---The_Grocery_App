@@ -178,88 +178,92 @@ Install below plugins
 
 10 → Sonar Quality Gates
 
-# Step 3 (B) — Configure Tool in jenkins
+# Step 3 (B) — Configure Tools in jenkins
 
-Goto Manage Jenkins → Tools →Install JDK
+Go to Manage Jenkins → Tools →
+
+Configure JDK
 
 + Name - jdk17
 + Install from - adobtium.net
 + version - jdk-17.0.8.1+1
-+ Click on Apply and Save
++  + Click on Apply and Save
+        
+Configure Sonarqube Scanner
+
++ Name - sonar-scanner
++ Install automatically - Ver - 5.0.1.3006
+
+Configure OWASP Dependency Check
+
++ Name - DP-Check
++ Install from - Github.com
++ Version - 6.5.1
+
+Configure Docker
+
++ Name - Docker
++ Install from - github.com
++ Version - Latest
 
 # Step 4 — Let's Set-up Credentials in jenkins
 
+1) Docker Credentials (using username & pass)
++ Username - tohidaws (example)
++ Password - ********
++ ID - docker
++ Description - docker
+
+2) Sonar Credentials ( Using secret text)
+   
+For sonar token 
++ navigate to sonarqube dashboard
++ go to administrator tab
++ then naviagate to security
++ Enter name , Type , and expiry of token an generate it and copy token
+
+NOW navigate to manage jenkins → Credentials 
+
++ Kind - secret text
++ secret - Paste what you copied
++ ID - Sonar-token
+
+3) Slack Credentials ( Using secret text)
+
+For Slack secret text
+
+Navigate to → Slack website → more → Automation → Search Jenkins CI → Configuration → Add to Slack →
+Choose a channel to get updates about your deployment → Take integration Credential ID → Secret text
+
+NOW navigate to manage jenkins → Credentials  
+
++ Kind - secret text
++ secret - Paste what you copied
++ ID - slack-jenkins-ci
+
+# Step 4 — Configure System settings in Manage Jenkins
+
+1) Sonarqube Installations
+   + Name - sonar-server
+   + Server URL - http://your_server_ip:9000
+   + Server Auth token - You will see (sonar-token) that we configured in the credentials
+
+2) Slack
+   + Workspace -- will be found on slack-jenkins integation page -- With a name of (TEAM SUB DOMAIN) -- Copy and paste HERE
+   + Credentials - You will see slack-jenkins-ci -- configured in credentials
+   + default channel - #general as saved in integeration page
 
 
-# Step 4 — Configure Sonar Server in Manage Jenkins
+# Let's add webhook between Jenkins server and Sonarqube
 
-Grab the Public IP Address of your EC2 Instance, Sonarqube works on
-Port 9000, so <Public IP>:9000.
+NOW navigate to soanrqube Dashboard → Administration → Configuration → webhooks → Create
 
-Goto your Sonarqube Server.
++ Name - (Your Wish)
++ URL - http://Your_machine_ip:8080/sonarqube/webhook/
++ Create
 
-Click on Administration → Security → Users → Click on Tokens and
-Update Token → Give it a name → and click on Generate Token
+# NOW Let's Build Our pipeline
 
-copy Token
-
-Goto Jenkins Dashboard → Manage Jenkins → Credentials → Add Secret
-Text. It should look like this
-
-Now, go to Dashboard → Manage Jenkins → System and Add like the
-below image.
-
-Click on Apply and Save
-
-The Configure System option is used in Jenkins to configure different
-server
-
-Global Tool Configuration is used to configure different tools that we
-install using Plugins
-
-We will install a sonar scanner in the tools.
-
-In the Sonarqube Dashboard add a quality gate also
-
-Administration → Configuration →Webhooks
-
-Add details
-
-Let’s go to our Pipeline and add the script in our Pipeline Script.
-
-https://github.com/tohidhanfi20/DEPLOY-THE-REACTJS-APP-IN-KUBERNETES-WITH-DEVSECOPS-CICD-PIPELINE/blob/main/Jenkinsfile1
-
-Click on Build now, you will see the stage view like this
-
-
-# Step 5 — Install OWASP Dependency Check Plugins
-
-Go to Dashboard → Manage Jenkins → Plugins → OWASP
-Dependency-Check. Click on it and install it without restart.
-
-
-First, we configured the Plugin and next, we had to configure the Tool
-
-Go to Dashboard → Manage Jenkins → Tools →
-
-Now go configure → Pipeline and add OWASP and TRIVY stage to your
-pipeline and build.
-
-You will see that in status, a graph will also be generated and
-Vulnerabilities.
-
-# Step 6 — Docker Image Build and Push
-
-Now, goto Dashboard → Manage Jenkins → Tools →
-
-Add Docker Hub Username and Password under Global Credentials
-
-Now Run the container to see if the game coming up or not by adding
-below stage
-
-image
-
-<Jenkins-public-ip:3000>
 
 
 # terminate the instance if you don't you will begger in no time :> 
