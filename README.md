@@ -42,8 +42,12 @@ Time-Saving: Skip the lines and the hassle of physical grocery shopping by order
 Eco-Friendly: Support sustainable practices with eco-friendly packaging and local sourcing of products.
 Farmly aims to revolutionize the way you shop for groceries by combining convenience, quality, and personalized service into one seamless app experience.
 
-# STEP 1 : Launch an Ubuntu(22.04) T2 Large Instance
+# STEP 1 : Launch an Machine in any cloud
 
++ Name - Your Choice
++ Image - Ubuntu
++ T2 Large Instance
++ Storage - 15gb
 
 
 # Step 2 —
