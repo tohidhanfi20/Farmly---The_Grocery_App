@@ -12,28 +12,29 @@ Key Features:
      + Intuitive Navigation: Easily browse through various categories and products with a clean and organized interface.
      + Search and Filter: Quickly find specific items using the powerful search function and filter options.
 
-Wide Range of Products:
-Fresh Produce: Access a variety of fresh fruits, vegetables, and herbs sourced from local farms.
-Dairy and Bakery: Shop for milk, cheese, bread, and other dairy and bakery products.
-Pantry Staples: Stock up on essential items such as grains, spices, canned goods, and more.
-Meat and Seafood: Order fresh and high-quality meat and seafood products.
-Household Essentials: Find cleaning supplies, personal care items, and other household necessities.
-Personalized Shopping Experience:
+2. Wide Range of Products:
+     + Fresh Produce: Access a variety of fresh fruits, vegetables, and herbs sourced from local farms.
 
-Recommendations: Receive personalized product recommendations based on your shopping history and preferences.
-Favorites: Save your favorite items and create custom shopping lists for easy access.
-Convenient Delivery Options:
+3. Personalized Shopping Experience:
 
-Flexible Scheduling: Choose a delivery time that suits your schedule, with same-day or next-day delivery options.
-Order Tracking: Track your order in real-time and receive notifications on its status.
-Secure and Easy Payment:
+     + Recommendations: Receive personalized product recommendations based on your shopping history and preferences.
+     + Favorites: Save your favorite items and create custom shopping lists for easy access.
 
-Multiple Payment Methods: Pay securely using credit/debit cards, digital wallets, or cash on delivery.
-Promotions and Discounts: Take advantage of special offers, discounts, and loyalty rewards.
-Customer Support:
+4. Convenient Delivery Options:
 
-24/7 Assistance: Get help anytime with dedicated customer support available through chat, email, or phone.
-Order Issues: Quickly resolve any issues with your orders, including returns and refunds.
+     + Flexible Scheduling: Choose a delivery time that suits your schedule, with same-day or next-day delivery options.
+     + Order Tracking: Track your order in real-time and receive notifications on its status.
+
+5. Secure and Easy Payment:
+
+     + Multiple Payment Methods: Pay securely using credit/debit cards, digital wallets, or cash on delivery.
+     + Promotions and Discounts: Take advantage of special offers, discounts, and loyalty rewards.
+
+4. Customer Support:
+
+     + 24/7 Assistance: Get help anytime with dedicated customer support available through chat, email, or phone.
+     + Order Issues: Quickly resolve any issues with your orders, including returns and refunds.
+
 Why Choose Farmly?
 
 Quality Assurance: Farmly partners with trusted suppliers to ensure the highest quality of products.
@@ -64,14 +65,11 @@ Farmly aims to revolutionize the way you shop for groceries by combining conveni
      sudo apt-get install jenkins -y
 
 
-Go to AWS EC2 Security Group and open Inbound Port 8080 and in
-server get the password
+Go to AWS EC2 Security Group and open Inbound Port to all traffic 
 
 <EC2 Public IP Address:8080>
 
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-
-
 
 UNLOCK JENKINS
 
@@ -85,32 +83,60 @@ Create a user click on save and continue.
 
     sudo apt update -y
 
-    sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
 
-    sudo apt update -y
+sudo apt update -y
 
-    apt-cache policy docker-ce -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-    sudo apt install docker-ce -y
+apt-cache policy docker-ce -y
 
-    #sudo systemctl status docker
- 
-    sudo chmod 777 /var/run/docker.sock
+sudo apt install docker-ce -y
 
+sudo systemctl status docker
+
+sudo chmod 777 /var/run/docker.sock
+
+sudo docker --version
+
+# Remove old versions
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+
+sudo apt-get update
+
+
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+
+sudo apt-get update
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+
+sudo systemctl status docker
 After the docker installation, we created a Sonarqube container
-(Remember to add 9000 ports in the security group).
+
 
     docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
 
 
 Now our Sonarqube is up and running
-
-
 
 Enter username and password, click on login and change password
 
@@ -129,20 +155,33 @@ Update New password, This is Sonar Dashboard.
      sudo apt-get install trivy
 
 # Step 3 — Install Plugins like JDK, Sonarqube Scanner,
-NodeJS, OWASP Dependency Check
 
-# Step 3 (A) — Install Plugin
+# Step 3 (A) — Install Plugin in jenkins server
 
 Go to Manage Jenkins →Plugins → Available Plugins →
 Install below plugins
 
-1 → Eclipse Temurin Installer (Install without restart)
+1 → Eclipse Temurin Installer
 
-2 → Sonarqube Scanner (Install without restart)
+2 → Sonarqube Scanner 
 
-3 → NodeJS Plugin (Install Without restart)
+3 → OWASP Dependancy Check
 
-# Step 3 (B) — Configure Java and Nodejs in Global Tool Configuration
+4 → Docker
+
+5 → Docker commons
+
+6 → Docker Pipeline
+
+7 → Docker Api
+
+8 → Docker Built Steps
+
+9 → Slack Notification
+
+10 → Sonar Quality Gates
+
+# Step 3 (B) — Configure Java in Global Tool Configuration
 
 Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→
 Click on Apply and Save
