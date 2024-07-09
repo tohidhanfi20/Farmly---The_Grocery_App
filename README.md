@@ -285,5 +285,12 @@ BUILD NOW
 
 HERE ARE SOME SCREENSHOTS
 
+<img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Farmly%20Dashboard.png>
+
+<img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Screenshot%202024-07-09%20191612.png>
+
+<img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Sonarqube%20Dashboard.png>
+
+<img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Jenkins%20Console%20Output.png>
 
 # terminate the instance if you don't you will begger in no time :> 
