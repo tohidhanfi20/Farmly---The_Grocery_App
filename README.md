@@ -1,7 +1,45 @@
-# Getting Started with 2048
+# Getting Started with FARMLY - The Grocery App
 
-This game (2048) was built using **React** and **TypeScript**. The unique part of this example is animations. The animations in React aren't that straightforward, so I hope you can learn something new from it.
+Farmly is a grocery app designed to provide users with a convenient and efficient way to shop for their groceries online. Here is a brief description of its features and functionality:
 
+Farmly: Your Online Grocery Shopping Companion
+Overview:
+Farmly is a modern grocery app that brings the convenience of online shopping to your fingertips. Whether you're planning your weekly grocery run or need to quickly replenish your pantry, Farmly ensures a seamless and enjoyable shopping experience.
+
+Key Features:
+
+1. User-Friendly Interface:
+     + Intuitive Navigation: Easily browse through various categories and products with a clean and organized interface.
+     + Search and Filter: Quickly find specific items using the powerful search function and filter options.
+
+Wide Range of Products:
+Fresh Produce: Access a variety of fresh fruits, vegetables, and herbs sourced from local farms.
+Dairy and Bakery: Shop for milk, cheese, bread, and other dairy and bakery products.
+Pantry Staples: Stock up on essential items such as grains, spices, canned goods, and more.
+Meat and Seafood: Order fresh and high-quality meat and seafood products.
+Household Essentials: Find cleaning supplies, personal care items, and other household necessities.
+Personalized Shopping Experience:
+
+Recommendations: Receive personalized product recommendations based on your shopping history and preferences.
+Favorites: Save your favorite items and create custom shopping lists for easy access.
+Convenient Delivery Options:
+
+Flexible Scheduling: Choose a delivery time that suits your schedule, with same-day or next-day delivery options.
+Order Tracking: Track your order in real-time and receive notifications on its status.
+Secure and Easy Payment:
+
+Multiple Payment Methods: Pay securely using credit/debit cards, digital wallets, or cash on delivery.
+Promotions and Discounts: Take advantage of special offers, discounts, and loyalty rewards.
+Customer Support:
+
+24/7 Assistance: Get help anytime with dedicated customer support available through chat, email, or phone.
+Order Issues: Quickly resolve any issues with your orders, including returns and refunds.
+Why Choose Farmly?
+
+Quality Assurance: Farmly partners with trusted suppliers to ensure the highest quality of products.
+Time-Saving: Skip the lines and the hassle of physical grocery shopping by ordering from the comfort of your home.
+Eco-Friendly: Support sustainable practices with eco-friendly packaging and local sourcing of products.
+Farmly aims to revolutionize the way you shop for groceries by combining convenience, quality, and personalized service into one seamless app experience.
 
 # STEP 1 : Launch an Ubuntu(22.04) T2 Large Instance
 
