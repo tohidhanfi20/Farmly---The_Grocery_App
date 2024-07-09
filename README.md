@@ -1,4 +1,4 @@
-<img width="1200" height="600" src=https://github.com/tohidhanfi20/three-tier-architecture-on-aws/blob/main/Images/1_lSIpD4-3C6F47yFBXjVvSQ.png>
+<img width="500" height="600" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Pipeline.png>
 
 # Getting Started with FARMLY - The Grocery App
 
