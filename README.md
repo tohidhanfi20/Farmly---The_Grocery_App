@@ -293,4 +293,4 @@ HERE ARE SOME SCREENSHOTS
 
 <img width="3500" height="400" src=https://github.com/tohidhanfi20/Farmly---The_Grocery_App/blob/main/assets/Screenshots/Jenkins%20Console%20Output.png>
 
-# terminate the instance if you don't you will begger in no time :> 
+# terminate the instance! if you don't you will be begger in no time :> 
